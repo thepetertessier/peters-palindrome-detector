@@ -8,7 +8,7 @@ tabtitle = 'palindrome detector'
 githublink = 'https://github.com/thepetertessier/peters-palindrome-detector'
 mywebsitelink = 'https://petertessier.com'
 starting_text = 'Was it a cat I saw?'
-image_options = ['assets/palindrome-definition.png','assets/palindrome-definition-1.png','assets/palindrome-definition-2.png']
+image_options = ['assets/palindrome-definition.png','assets/Palindrome-Definition-1.png','assets/Palindrome-Definition-2.png']
 image = image_options[1]
 
 # Helper functions

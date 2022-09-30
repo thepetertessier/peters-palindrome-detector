@@ -48,18 +48,11 @@ app.layout = html.Div([
         }
     ),
     html.Div(children=[
-        html.H6('Parameters:'),
         dcc.Checklist(['case sensitive?', 'space sensitive?', 'punctuation sensitive?'],
                        value=[],
                        id='sensitivities'),
         html.Br(),
-        dcc.Input(id='input_text', value=starting_text, type='text'),
-        html.Button(children='Go!', id='go_button', n_clicks=0,
-                    style={
-                    'background-color': colors['theme'],
-                    'color': 'white',
-                    'margin-left': '5px'}
-                    ),
+        dcc.Input(id='input_text', value=starting_text, type='text', style={'width':375}),
         html.Br(),
         html.Br(),
         html.Div(id='output-div'),
@@ -74,13 +67,12 @@ app.layout = html.Div([
 # If the button is clicked, detect if the inputted text is a palindrome
 @app.callback(
     Output('output-div','children'),
-    Input('go_button', 'n_clicks'),
-    State('sensitivities', 'value'),
-    State('input_text', 'value')
+    Input('input_text', 'value'),
+    Input('sensitivities', 'value'),
 )
-def say_if_its_palindrome(clicks, sensitivities, input_text):
-    if clicks == 0:
-        return 'Waiting for input...'
+def say_if_its_palindrome(input_text, sensitivities):
+    if input_text == '':
+        return html.Br()
     if palindrome_test(input_text,
                        'case sensitive?' in sensitivities,
                        'space sensitive?' in sensitivities,

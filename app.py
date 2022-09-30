@@ -7,7 +7,9 @@ from dash.dependencies import Input, Output, State
 tabtitle = 'palindrome detector'
 githublink = 'https://github.com/thepetertessier/peters-palindrome-detector'
 mywebsitelink = 'https://petertessier.com'
-starting_text = "Was it a cat I saw?"
+starting_text = 'Was it a cat I saw?'
+image_options = ['assets/palindrome-definition.png','assets/palindrome-definition-2.png']
+image = image_options[1]
 
 # Helper functions
 def clean_text(text, case_sens, space_sens, punc_sens):
@@ -47,12 +49,14 @@ app.layout = html.Div([
             'color': colors['theme']
         }
     ),
+    html.Img(src=image, height=140),
     html.Div(children=[
+        html.Label('Is it...'),
         dcc.Checklist(['case sensitive?', 'space sensitive?', 'punctuation sensitive?'],
                        value=[],
                        id='sensitivities'),
         html.Br(),
-        dcc.Input(id='input_text', value=starting_text, type='text', style={'width':375}),
+        dcc.Input(id='input_text', value=starting_text, type='text', style={'width':350}),
         html.Br(),
         html.Br(),
         html.Div(id='output-div'),
@@ -77,8 +81,8 @@ def say_if_its_palindrome(input_text, sensitivities):
                        'case sensitive?' in sensitivities,
                        'space sensitive?' in sensitivities,
                        'punctuation sensitive?' in sensitivities):
-        return 'It is a palindrome!'
-    return 'It is not a palindrome.'
+        return 'It\'s a palindrome!'
+    return 'It\'s not a palindrome.'
 
 
 if __name__ == '__main__':

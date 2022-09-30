@@ -8,7 +8,7 @@ tabtitle = 'palindrome detector'
 githublink = 'https://github.com/thepetertessier/peters-palindrome-detector'
 mywebsitelink = 'https://petertessier.com'
 starting_text = 'Was it a cat I saw?'
-image_options = ['assets/palindrome-definition.png','assets/palindrome-definition-2.png']
+image_options = ['assets/palindrome-definition.png','assets/palindrome-definition-1.png','assets/palindrome-definition-2.png']
 image = image_options[1]
 
 # Helper functions
@@ -38,7 +38,7 @@ server = app.server
 app.title = tabtitle
 
 colors = {
-    'background': '#111111',
+    'background': 'white',
     'theme': '#388ec7'
 }
 
@@ -51,22 +51,23 @@ app.layout = html.Div([
     ),
     html.Img(src=image, height=140),
     html.Div(children=[
-        html.Label('Is it...'),
+        html.H6('Enter text here (example given):'),
+        dcc.Input(id='input_text', value=starting_text, type='text', style={'width':350}),
+        html.Br(),
+        html.Br(),
+        html.H6('Should the detection be...'),
         dcc.Checklist(['case sensitive?', 'space sensitive?', 'punctuation sensitive?'],
                        value=[],
                        id='sensitivities'),
         html.Br(),
-        dcc.Input(id='input_text', value=starting_text, type='text', style={'width':350}),
-        html.Br(),
-        html.Br(),
-        html.Div(id='output-div'),
+        html.Div(id='output-div', style={'font-weight':'bold', 'font-size':'20px'}),
         html.Br(),
         html.Br(),
         html.A('Code on GitHub', href=githublink),
         html.Br(),
         html.A('About me', href=mywebsitelink)
     ])
-], style={'textAlign': 'center'})
+], style={'textAlign': 'center', 'backgroundColor': colors['background']})
 
 # If the button is clicked, detect if the inputted text is a palindrome
 @app.callback(

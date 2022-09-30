@@ -49,7 +49,7 @@ app.layout = html.Div([
             'color': colors['theme']
         }
     ),
-    html.Img(src=image, height=140),
+    html.Img(src=image, height=120),
     html.Div(children=[
         html.H6('Enter text here (example given):'),
         dcc.Input(id='input_text', value=starting_text, type='text', style={'width':350}),

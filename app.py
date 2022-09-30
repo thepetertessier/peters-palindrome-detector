@@ -11,7 +11,7 @@ mywebsitelink = 'https://google.com'
 
 # Helper functions
 def clean_text(text, case_sens, space_sens, punc_sens):
-    punctuation_chars = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+    punctuation_chars = '''!()-[]{};:'"\,<>./?@#$%^&*_~–—…|+='''
     if not case_sens:
         text = text.lower()
     if not space_sens:
@@ -52,9 +52,7 @@ app.layout = html.Div([
         dcc.Checklist(['case sensitive?', 'space sensitive?', 'punctuation sensitive?'],
                        value=[],
                        id='sensitivities'),
-
         html.Br(),
-
         dcc.Input(id='input_text', value='kayak', type='text'),
         html.Button(children='Go!', id='go_button', n_clicks=0,
                     style={
@@ -67,7 +65,6 @@ app.layout = html.Div([
         html.Br(),
         html.Br(),
         html.Div(id='output-div'),
-
         html.Br(),
         html.Br(),
         html.A('Code on GitHub', href=githublink),

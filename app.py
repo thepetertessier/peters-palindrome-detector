@@ -14,7 +14,7 @@ image = image_options[1]
 # Helper functions
 def clean_text(text, case_sens, space_sens, punc_sens):
     # Modify text according to checked parameters
-    punctuation_chars = '''!()-[]{};:'"\,<>./?@#$%^&*_~–—…|+='''
+    punctuation_chars = '''!()-[]{};:'"\,<>./?@#$%^&*_~–—…|+=`'''
     if not case_sens:
         text = text.lower()
     if not space_sens:

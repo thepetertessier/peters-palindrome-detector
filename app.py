@@ -1,15 +1,14 @@
 # Visit http://127.0.0.1:8050/ when running locally
 
 from dash import Dash, html, dcc
-from dash.dependencies import Input, Output, State
+from dash.dependencies import Input, Output
 
 # Variables
 tabtitle = 'palindrome detector'
 githublink = 'https://github.com/thepetertessier/peters-palindrome-detector'
 mywebsitelink = 'https://petertessier.com'
 starting_text = 'Was it a cat I saw?'
-image_options = ['assets/palindrome-definition.png','assets/Palindrome-Definition-1.png','assets/Palindrome-Definition-2.png']
-image = image_options[1]
+image = 'assets/palindrome-definition.png'
 
 # Helper functions
 def clean_text(text, case_sens, space_sens, punc_sens):

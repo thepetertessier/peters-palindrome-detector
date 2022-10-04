@@ -27,10 +27,7 @@ def clean_text(text, case_sens, space_sens, punc_sens):
 def palindrome_test(text, case_sens, space_sens, punc_sens):
     # Logic for testing if palindrome
     text = clean_text(text, case_sens, space_sens, punc_sens)
-    for i, letter in enumerate(text[:(len(text)//2)]):
-        if letter != text[-i - 1]:
-            return False
-    return True
+    return text == text[::-1]
 
 # Initiate app
 app = Dash(__name__)

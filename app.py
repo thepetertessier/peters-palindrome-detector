@@ -65,7 +65,7 @@ app.layout = html.Div([
     ])
 ], style={'textAlign': 'center', 'backgroundColor': colors['background']})
 
-# If the button is clicked, detect if the inputted text is a palindrome
+# If text field or checkboxes change, detect if the inputted text is a palindrome
 @app.callback(
     Output('output-div','children'),
     Input('input_text', 'value'),
